@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/*1.变量*/
+.mycolor {
+  color: blue;
+  width: 500px;
+  border-left: 5px solid green;
+  /*将变量写在 属性名或选择器中时，需要添加 */ }
+
+/*2.默认变量 如果变量已经赋值下面使用时按变量的值来显示；
+如果 变量没有赋值，那么会显示成默认值*/
+.height {
+  line-height: 4;
+  background: yellow; }
+
+/*3.scss s是可以进行 加减乘除求余的运算，如：数字、颜色、变量等 ，*/
+/*最好在运算符前后留一个空格，避免错误出现*/
+.ccc {
+  position: absolute;
+  width: 50%;
+  height: 100px;
+  /*100px*/
+  background: pink;
+  top: 60px;
+  right: 50px; }
+
+/*4. 嵌套  */
+ul {
+  border: 1px dotted orange; }
+  ul li {
+    height: 100px;
+    background-color: lightblue; }
+    ul li div {
+      height: 50px;
+      width: 100px;
+      background-color: deeppink; }
+
+p {
+  border: 1px solid red;
+  /*属性嵌套的写法*/
+  border-color: green; }
+
+/*在嵌套的代码块内，可以使用 & 引用父元素*/
+a:hover {
+  color: gold; }
+
+/*5.注释的写法*/

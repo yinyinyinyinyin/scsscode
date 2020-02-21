@@ -1,0 +1,66 @@
+@charset "utf-8";//中文字符集 
+/*1.变量*/
+$blue:blue;
+$side:left;
+.mycolor{
+	color:$blue;
+	width:500px;
+	border-#{$side}:5px solid green;/*将变量写在 属性名或选择器中时，需要添加 */
+}
+
+/*2.默认变量 如果变量已经赋值下面使用时按变量的值来显示；
+如果 变量没有赋值，那么会显示成默认值*/
+$baseLine:2;
+$baseLine:3;
+$baseLine:4;
+$baseLine:1.5 !default;
+.height{
+	line-height: $baseLine;
+	background: yellow;
+}
+
+/*3.scss s是可以进行 加减乘除求余的运算，如：数字、颜色、变量等 ，*/
+/*最好在运算符前后留一个空格，避免错误出现*/
+$num:5;
+.ccc{
+	position:absolute;
+	width: $num * 10%;
+	height:$num % 3 * 50px; /*100px*/
+	background: pink;
+	top:50px + 10px;
+	right:$num * 10px;
+}
+
+/*4. 嵌套  */
+ul{
+	border:1px dotted orange;
+	li{
+		height:100px; 
+		background-color: lightblue;
+		div{
+			height:50px;
+			width:100px;
+			background-color: deeppink;
+		}
+	}
+}
+
+p{
+	border:1px solid red;
+	border:{/*属性嵌套的写法*/
+		color:green;
+	}
+}
+
+/*在嵌套的代码块内，可以使用 & 引用父元素*/
+a{
+	&:hover{
+		color:gold;
+	}
+}
+
+/*5.注释的写法*/
+//标准的CSS注释 /* comment */ ，会保留到编译后的文件。
+// 单行注释 // comment，只保留在SASS源文件中，编译后被省略。
+// /*! comment */ ，表示"重要注释",压缩时保留注释，用于声明版权。
+
