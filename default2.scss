@@ -9,10 +9,49 @@ p{
 	@if lightness($color) > 30% {
 		color:$color;
 		background-color: #000;
+		width:if(true,200px,400px);/*scss里面 三目运算符的写法*/
 	}
 	@else{
 		color:$color;
 		background-color: #fff;
+		width:if(false,200px,400px);
 	}
-	
+}
+
+/*2.循环语句  */
+/*ul中有10个li,边框的宽度递增*/
+/*for*/
+@for $i from 1 to 11 {
+	li:nth-of-type(#{$i}){
+		border-bottom:#{$i}px dotted blue;
+	}
+}
+
+/*while*/
+$j : 6;
+@while $j > 0 {
+	li:nth-of-type(#{$j}){
+		border-left:#{$j}px solid green;
+	}
+	$j:$j - 2;
+}
+
+/*each*/
+/*显示图片*/
+@each $member  in 1, 2, 3, 4, 5 {
+	.img#{$member}{
+		background-image: url("img/#{$member}.jpg");
+		width:470px;
+		height:150px;
+	}
+}
+
+/*3.自定义函数*/
+@function double($n){
+	@return $n * 2;
+}
+
+#side{
+	width: double(150px);
+	background: seagreen;
 }
