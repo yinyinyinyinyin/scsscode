@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /*1.变量*/
+@import url(tt.css);
 .mycolor {
   color: blue;
   width: 500px;
@@ -44,3 +45,42 @@ a:hover {
   color: gold; }
 
 /*5.注释的写法*/
+/*6.继承 @extend */
+.class1, .class2 {
+  border: 5px solid purple; }
+
+.class2 {
+  width: 200px;
+  height: 50px;
+  background-color: yellow; }
+
+/*7.mixin 混入的写法，将重用的代码块整合在一起，作为公共的样式*/
+/*定义混入*/
+.class2 {
+  font-size: 30px;
+  color: darkblue;
+  /* 调用 混入*/ }
+
+.ccc {
+  font-size: 30px;
+  color: darkblue; }
+
+/*可以传参数的mixin*/
+/*调用*/
+ul li div {
+  border-bottom: 4px double green; }
+
+.mycolor {
+  border-bottom: 4px double orange; }
+
+/*8.color 函数*/
+/*可以设置透明度*/
+.ceshi1 {
+  color: gray;
+  margin-top: 100px; }
+
+/*9.使用 @import 引入 外部的 scss文件  ，或 css文件*/
+body {
+  background: yellow; }
+  body h1 {
+    background: blue; }

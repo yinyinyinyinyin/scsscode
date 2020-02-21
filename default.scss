@@ -64,3 +64,61 @@ a{
 // 单行注释 // comment，只保留在SASS源文件中，编译后被省略。
 // /*! comment */ ，表示"重要注释",压缩时保留注释，用于声明版权。
 
+/*6.继承 @extend */
+.class1{
+	border:5px solid purple;
+}
+.class2{
+	@extend .class1;
+	width:200px;
+	height: 50px;
+	background-color: yellow;
+}
+
+/*7.mixin 混入的写法，将重用的代码块整合在一起，作为公共的样式*/
+/*定义混入*/
+@mixin font{
+	font-size: 30px;
+	color:darkblue;
+}
+
+.class2{
+	@include font;/* 调用 混入*/
+}
+.ccc{
+	@include font;
+}
+
+/*可以传参数的mixin*/
+@mixin bottomBorder($color:#000){
+	border-bottom:4px double $color;
+}
+/*调用*/
+ul{
+	li{
+		div{
+			@include bottomBorder(green);
+		}
+	}
+}
+.mycolor{
+	@include bottomBorder(orange);
+}
+
+/*8.color 函数*/
+
+$yanse :lighten(#000,50%);/*可以设置透明度*/
+.ceshi1{
+	color:$yanse;
+	margin-top:100px;}
+	
+//	darken(#cc3, 10%) /* #a3a329 颜色的暗度的设置*/  
+//	grayscale(#cc3) /* #808080 颜色的灰度设置*/
+//	complement(#cc3) /* #33c 补色的设置*/
+
+/*9.使用 @import 引入 外部的 scss文件  ，或 css文件
+引入的如果是scss文件，会将 scss文件和我们的主文件编译为一个文件
+引入的是 css文件，就不能编译在一起！css里面的样式还是可以使用的
+*/
+@import "qq.scss";
+@import "tt.css";
